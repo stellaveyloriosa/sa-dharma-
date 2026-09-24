@@ -47,22 +47,28 @@ export const Navbar: React.FC<NavbarProps> = ({
           className="pointer-events-auto max-w-6xl shadow-[0_8px_30px_rgba(0,0,0,0.06)] border border-white/80"
           contentClassName="w-full h-full px-4 sm:px-6 flex items-center justify-between"
         >
-          {/* Left: SDK logo + divider + Full Name */}
+          {/* Left: SDK logo + Full Name */}
           <div
             onClick={() => handleLinkClick('hero')}
             className="flex items-center gap-2.5 cursor-pointer group shrink-0"
           >
-            <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-purple-600 flex items-center justify-center text-white shadow-xs group-hover:scale-105 transition-transform">
+            {/* SDK badge — desktop only */}
+            <div className="hidden lg:flex w-8 h-8 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-purple-600 items-center justify-center text-white shadow-xs group-hover:scale-105 transition-transform">
               <span className="text-xs font-extrabold tracking-wider font-display">
                 SDK
               </span>
             </div>
+            {/* Desktop: plain name */}
             <span className="text-[13.5px] font-bold tracking-tight text-slate-900 group-hover:text-indigo-600 transition-colors hidden xl:inline-block">
+              Sa Dharmasastha Karthikeya
+            </span>
+            {/* Mobile: gradient highlighted name */}
+            <span className="lg:hidden text-[13px] font-extrabold tracking-tight bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent font-display">
               Sa Dharmasastha Karthikeya
             </span>
           </div>
 
-          {/* Center Navigation Links - Never crowded, scaled gracefully */}
+          {/* Center Navigation Links — desktop only */}
           <nav className="hidden lg:flex items-center justify-center gap-3.5 xl:gap-6 2xl:gap-7 text-[13px] xl:text-[13.5px] font-medium text-slate-600 flex-1 px-2 max-w-2xl">
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;
@@ -87,8 +93,9 @@ export const Navbar: React.FC<NavbarProps> = ({
             })}
           </nav>
 
-          {/* Right Action: Gradient Pill "Let's Connect" button + mobile hamburger */}
+          {/* Right: Let's Connect (desktop) + hamburger (mobile only) */}
           <div className="flex items-center gap-2 shrink-0">
+            {/* Let's Connect — desktop only */}
             <motion.button
               onClick={() => {
                 if (onConnectClick) onConnectClick();
@@ -97,13 +104,13 @@ export const Navbar: React.FC<NavbarProps> = ({
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
               transition={{ type: 'spring', stiffness: 500, damping: 15 }}
-              className="px-4 xl:px-5 py-2 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white text-xs xl:text-[13px] font-bold flex items-center gap-1.5 shadow-[0_4px_16px_rgba(99,102,241,0.3)] hover:shadow-[0_6px_22px_rgba(99,102,241,0.4)] cursor-pointer whitespace-nowrap transition-shadow"
+              className="hidden lg:flex px-4 xl:px-5 py-2 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white text-xs xl:text-[13px] font-bold items-center gap-1.5 shadow-[0_4px_16px_rgba(99,102,241,0.3)] hover:shadow-[0_6px_22px_rgba(99,102,241,0.4)] cursor-pointer whitespace-nowrap transition-shadow"
             >
               <Send className="w-3.5 h-3.5" />
               <span>Let's Connect</span>
             </motion.button>
 
-            {/* Mobile Menu Button */}
+            {/* Hamburger — mobile only */}
             <button
               onClick={() => setMobileMenuOpen(true)}
               aria-label="Toggle navigation"

@@ -429,11 +429,11 @@ button,
   overflow: hidden;
 }
 
-.pub-status-Published { border-left: 3px solid #059669; }
-.pub-status-Under-Review { border-left: 3px solid #0891b2; }
-.pub-status-Preprint { border-left: 3px solid #d97706; }
-.pub-status-In-Preparation { border-left: 3px solid #9ca3af; }
-.pub-status-Accepted-Conf { border-left: 3px solid #7c3aed; }
+.pub-status-Published,
+.pub-status-Under-Review,
+.pub-status-Preprint,
+.pub-status-In-Preparation,
+.pub-status-Accepted-Conf { /* status colors in badges only, no card rail */ }
 
 .pub-badge {
   backdrop-filter: blur(8px);

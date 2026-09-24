@@ -67,8 +67,8 @@ export const Publications: React.FC<PublicationsProps> = ({ isMobile: _isMobile 
       : publications.filter((pub) => pub.status === activeFilter);
 
   return (
-    <section id="publications" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
-      <div className="liquid-glass section-bg-radial-pubs rounded-[32px] sm:rounded-[40px] p-6 sm:p-10 lg:p-12 relative overflow-hidden">
+    <section id="publications" className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
+      <div className="liquid-glass section-bg-radial-pubs rounded-[28px] sm:rounded-[40px] p-5 sm:p-10 lg:p-12 relative overflow-hidden">
         <SectionHeading
           title="Publications"
           subtitle="Peer-Reviewed Articles, Conference Proceedings & Preprints"
@@ -105,7 +105,7 @@ export const Publications: React.FC<PublicationsProps> = ({ isMobile: _isMobile 
                 className="h-full flex flex-col"
               >
                 <div
-                  className={`publication-card ${statusStripeClass(pub.status)} p-6 sm:p-7 flex flex-col justify-between h-full group relative`}
+                  className={`publication-card ${statusStripeClass(pub.status)} p-4 sm:p-7 flex flex-col justify-between h-full group relative`}
                 >
                   <div>
                     <div className="flex items-center justify-between gap-2 mb-3.5">

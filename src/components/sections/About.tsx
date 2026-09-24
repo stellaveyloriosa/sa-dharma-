@@ -136,7 +136,7 @@ export const About: React.FC<AboutProps> = ({ isMobile }) => {
                 backgroundOpacity={0.7}
                 distortionScale={-100}
                 displace={3}
-                className="border-l-4 border-indigo-600 border border-white/90 shadow-md"
+                className="border border-white/90 shadow-md"
                 contentClassName="p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 w-full"
               >
                 <div className="flex items-start gap-3">

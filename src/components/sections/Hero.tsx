@@ -1,24 +1,22 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import {
   ArrowRight,
   Download,
   GraduationCap,
-  Landmark,
   FileCheck,
   Github,
   Linkedin,
   BookOpen,
   Award,
   Mail,
-  ArrowDown,
 } from 'lucide-react';
-import { gsap } from 'gsap';
 import StrokeText from '../ui/StrokeText';
 import RippleDistortion from '../ui/RippleDistortion';
 import GlassSurface from '../ui/GlassSurface';
 import { PORTFOLIO_DATA } from '../../data/portfolio';
 import { ASSETS } from '../../data/assets';
+
 
 interface HeroProps {
   isMobile: boolean;
@@ -26,49 +24,189 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ isMobile, onExploreClick }) => {
-  const scrollIndicatorRef = useRef<HTMLDivElement>(null);
   const { personal } = PORTFOLIO_DATA;
 
-  useEffect(() => {
-    const el = scrollIndicatorRef.current;
-    if (!el) return;
-
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) return;
-
-    const bounce = gsap.to(el, {
-      y: 6,
-      repeat: -1,
-      yoyo: true,
-      duration: 1.2,
-      ease: 'sine.inOut',
-    });
-
-    return () => {
-      bounce.kill();
-    };
-  }, []);
 
   return (
     <section
       id="hero"
-      className="relative min-h-screen pt-28 sm:pt-32 pb-16 px-4 sm:px-8 lg:px-12 max-w-7xl mx-auto flex flex-col justify-between overflow-hidden"
+      className="relative min-h-screen pb-16 max-w-7xl mx-auto flex flex-col justify-between overflow-hidden"
     >
-      {/* Background Soft Blobs replicating the exact layout background from reference */}
+      {/* Background Soft Blobs */}
       <div className="absolute top-10 left-[-8%] w-[550px] h-[550px] bg-gradient-to-tr from-blue-100/40 via-indigo-50/30 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
       <div className="absolute top-1/4 right-[-5%] w-[650px] h-[650px] bg-gradient-to-bl from-purple-100/40 via-blue-50/30 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
 
-      {/* Main Grid: Left Typography + Content, Right Illustrated Visual Composite */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center my-auto">
-        {/* Left Column (col-span-7) */}
+      {/* ── MOBILE LAYOUT: Portrait on top, text below ── (hidden on lg+) */}
+      <div className="lg:hidden flex flex-col">
+        {/* Portrait — full width, no card frame, floats at top */}
+        <div className="relative w-full flex justify-center items-end pt-24 pb-4 px-4">
+          <div className="relative w-[82vw] max-w-[340px] aspect-square">
+            <RippleDistortion
+              src={ASSETS.realPhoto}
+              brushSize={140}
+              strength={0.06}
+              swirl={0.4}
+              rings={2.5}
+              spread={3.2}
+              fade={3.0}
+              spacing={18}
+              dispersion={0.01}
+              glint={0.12}
+              tint="#6366f1"
+              tintAmount={0.06}
+              highlightColor="#ffffff"
+              grayscale={false}
+              trigger="both"
+              clickStrength={1.0}
+              quality="medium"
+              enabled
+              className="w-full h-full object-cover object-top rounded-3xl"
+            />
+          </div>
+        </div>
+
+        {/* Text content below portrait */}
+        <div className="px-5 pb-8 space-y-4">
+          {/* Availability badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="inline-block"
+          >
+            {/* Compact pill badge — wraps cleanly on small screens */}
+            <div
+              className="mobile-hero-badge inline-flex items-start gap-2 px-3.5 py-2 rounded-2xl text-[11.5px] font-medium text-slate-600"
+              style={{
+                background: 'rgba(255,255,255,0.72)',
+                border: '1px solid rgba(167,139,250,0.3)',
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
+                boxShadow: '0 2px 8px rgba(99,102,241,0.08)',
+                maxWidth: '100%',
+              }}
+            >
+              <span
+                className="mt-[3px] shrink-0 w-2 h-2 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600"
+                style={{ boxShadow: '0 0 6px rgba(147,51,234,0.55)' }}
+              />
+              <span className="leading-snug">
+                Biomedical Engineering{' '}
+                <span className="text-purple-400 mx-0.5">×</span> AI{' '}
+                <span className="text-purple-400 mx-0.5">×</span>{' '}
+                Healthcare Innovation
+              </span>
+            </div>
+          </motion.div>
+
+
+          {/* Name — large, bold, stacked */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="space-y-0"
+          >
+            <StrokeText
+              text="SA DHARMASASTHA"
+              strokeColor="#6366F1"
+              fillColor="#0A0A0A"
+              strokeWidth={2.0}
+              drawDuration={1.3}
+              fillDelay={0.15}
+              stagger={0.03}
+              ease="power2.out"
+              trigger="mount"
+              fillMode="wipe"
+              fontSize={40}
+              fontWeight={800}
+              letterSpacing={-1.5}
+              fontFamily="'Sora', 'Plus Jakarta Sans', sans-serif"
+            />
+            <StrokeText
+              text="KARTHIKEYA"
+              strokeColor="#9333EA"
+              fillColor="#4F46E5"
+              strokeWidth={2.0}
+              drawDuration={1.4}
+              fillDelay={0.25}
+              stagger={0.04}
+              ease="power2.out"
+              trigger="mount"
+              fillMode="wipe"
+              fontSize={40}
+              fontWeight={800}
+              letterSpacing={-1.5}
+              fontFamily="'Sora', 'Plus Jakarta Sans', sans-serif"
+            />
+          </motion.div>
+
+          {/* Subtitle */}
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-[13px] font-sans font-semibold tracking-wide text-slate-600"
+          >
+            Biomedical Engineer <span className="mx-1.5 text-indigo-500 font-bold">·</span> Computational Researcher <span className="mx-1.5 text-indigo-500 font-bold">·</span> Single-Cell Biology
+          </motion.p>
+
+          {/* Description */}
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+            className="text-[13.5px] font-sans font-normal text-slate-500 leading-relaxed"
+          >
+            Exploring the intersection of biomedical engineering, artificial intelligence,
+            and data-driven healthcare to build impactful solutions for a healthier tomorrow.
+          </motion.p>
+
+          {/* Action Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="flex flex-wrap items-center gap-3 pt-1"
+          >
+            <motion.button
+              onClick={onExploreClick}
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.96 }}
+              transition={{ type: 'spring', stiffness: 500, damping: 15 }}
+              className="px-5 py-2.5 rounded-full bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white text-[13px] font-bold flex items-center gap-2 shadow-[0_8px_20px_-5px_rgba(15,23,42,0.35)] cursor-pointer"
+            >
+              <span>View My Work</span>
+              <ArrowRight className="w-3.5 h-3.5 text-indigo-300" />
+            </motion.button>
+            <motion.a
+              href="https://drive.google.com"
+              target="_blank"
+              rel="noreferrer"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.96 }}
+              transition={{ type: 'spring', stiffness: 500, damping: 15 }}
+              className="px-5 py-2.5 rounded-full bg-white/90 border border-slate-200 text-slate-900 text-[13px] font-bold flex items-center gap-2 shadow-xs cursor-pointer"
+            >
+              <Download className="w-3.5 h-3.5 text-slate-700" />
+              <span>Download Resume</span>
+            </motion.a>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* ── DESKTOP LAYOUT: Side-by-side grid ── (hidden on mobile) */}
+      <div className="hidden lg:grid lg:grid-cols-12 gap-8 items-center my-auto px-8 xl:px-12 pt-32 pb-4">
+        {/* Left Column */}
         <div className="lg:col-span-7 space-y-6 pt-4">
-          {/* Pill Badge: Biomedical Engineering * AI * Healthcare Innovation with GlassSurface */}
+          {/* Pill Badge */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="inline-block"
           >
+
             <GlassSurface
               width="auto"
               height={38}
@@ -184,13 +322,14 @@ export const Hero: React.FC<HeroProps> = ({ isMobile, onExploreClick }) => {
             </motion.a>
           </motion.div>
 
-          {/* Academic & Innovation Highlight Badges with High-Class Luxury Emblems */}
+          {/* Academic & Innovation Highlight Badges — hidden on mobile */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.35 }}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-3"
+            className="hidden sm:grid grid-cols-1 sm:grid-cols-3 gap-3 pt-3"
           >
+
             <motion.div
               whileHover={{ scale: 1.05, y: -3 }}
               whileTap={{ scale: 0.95 }}
@@ -249,13 +388,14 @@ export const Hero: React.FC<HeroProps> = ({ isMobile, onExploreClick }) => {
             </motion.div>
           </motion.div>
 
-          {/* Social Icons Row with High-Class Luxury Badges */}
+          {/* Social Icons Row — hidden on mobile */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex items-center gap-3 pt-2"
+            className="hidden sm:flex items-center gap-3 pt-2"
           >
+
             {[
               { href: personal.socialLinks.github, icon: Github, label: 'GitHub' },
               { href: personal.socialLinks.linkedin, icon: Linkedin, label: 'LinkedIn' },
@@ -279,24 +419,23 @@ export const Hero: React.FC<HeroProps> = ({ isMobile, onExploreClick }) => {
           </motion.div>
         </div>
 
-        {/* Right Column (col-span-5): Exact Visual Layout with Portrait, Arc, 3 Floating Glass Cards & Campus Base */}
-        <div className="lg:col-span-5 relative flex justify-center items-center">
+        {/* Right Column: Portrait — visible on all screen sizes */}
+        <div className="col-span-1 lg:col-span-5 relative flex justify-center items-center">
           <div className="relative w-full max-w-[480px] aspect-[4/5] flex items-center justify-center">
-            {/* Background Circular Aura & Handwritten Script 'Build Learn Research Impact' */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            {/* Background Circular Aura — hidden on mobile to keep it clean */}
+            <div className="absolute inset-0 hidden sm:flex items-center justify-center pointer-events-none">
               <div className="w-[320px] sm:w-[380px] h-[320px] sm:h-[380px] rounded-full border border-purple-200/50 bg-gradient-to-b from-purple-50/40 via-blue-50/20 to-transparent relative" />
-
-              {/* Floating research journey tags */}
+              {/* Floating tag — desktop only */}
               <div className="absolute top-4 left-6 sm:left-2 text-indigo-600/80 font-mono text-xs sm:text-sm font-bold tracking-wider select-none pointer-events-none rotate-[-6deg] bg-white/70 backdrop-blur-xs px-3 py-1.5 rounded-xl border border-indigo-100 shadow-2xs">
                 <span>// Build · Learn · Innovate</span>
               </div>
             </div>
 
-            {/* Central Vector Watercolor Painted Portrait in Liquid Glass Frame */}
-            <div className="relative z-10 w-[270px] sm:w-[330px] h-[270px] sm:h-[330px] rounded-[36px] sm:rounded-[44px] overflow-hidden shadow-[0_20px_50px_-10px_rgba(99,102,241,0.25)] border-2 border-white/95 bg-white/60 backdrop-blur-md cursor-pointer group">
+            {/* Portrait — real photo with RippleDistortion */}
+            <div className="relative z-10 w-[130px] sm:w-[270px] lg:w-[330px] h-[130px] sm:h-[270px] lg:h-[330px] rounded-[24px] sm:rounded-[36px] lg:rounded-[44px] overflow-hidden shadow-[0_20px_50px_-10px_rgba(99,102,241,0.25)] border-2 border-white/95 bg-white/60 backdrop-blur-md cursor-pointer group">
               <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/10 to-transparent pointer-events-none z-10" />
               <RippleDistortion
-                src={ASSETS.portrait}
+                src={ASSETS.realPhoto}
                 brushSize={140}
                 strength={0.06}
                 swirl={0.4}
@@ -314,16 +453,16 @@ export const Hero: React.FC<HeroProps> = ({ isMobile, onExploreClick }) => {
                 clickStrength={1.0}
                 quality="medium"
                 enabled
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-top"
               />
             </div>
 
-            {/* Floating Glass Card 1: Top-Right - "AI for Healthcare" with 3D Brain */}
+            {/* Floating Glass Card 1: Top-Right - "AI for Healthcare" — desktop only */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9, x: 20 }}
               animate={{ opacity: 1, scale: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="absolute -top-2 -right-2 sm:right-2 z-20 cursor-pointer group"
+              className="absolute -top-2 -right-2 sm:right-2 z-20 cursor-pointer group hidden sm:block"
             >
               <GlassSurface
                 width={144}
@@ -362,12 +501,12 @@ export const Hero: React.FC<HeroProps> = ({ isMobile, onExploreClick }) => {
               </GlassSurface>
             </motion.div>
 
-            {/* Floating Glass Card 2: Mid-Left - "Single-Cell Biology" with 3D DNA */}
+            {/* Floating Glass Card 2: Mid-Left - "Single-Cell Biology" — desktop only */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9, x: -20 }}
               animate={{ opacity: 1, scale: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="absolute bottom-16 -left-3 sm:-left-6 z-20 cursor-pointer group"
+              className="absolute bottom-16 -left-3 sm:-left-6 z-20 cursor-pointer group hidden sm:block"
             >
               <GlassSurface
                 width={176}
@@ -409,12 +548,12 @@ export const Hero: React.FC<HeroProps> = ({ isMobile, onExploreClick }) => {
               </GlassSurface>
             </motion.div>
 
-            {/* Floating Glass Card 3: Mid-Right - "Medical Innovation" with 3D Lungs */}
+            {/* Floating Glass Card 3: Bottom-Right - "Medical Innovation" — desktop only */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9, x: 20 }}
               animate={{ opacity: 1, scale: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="absolute -bottom-4 -right-2 sm:right-0 z-20 cursor-pointer group"
+              className="absolute -bottom-4 -right-2 sm:right-0 z-20 cursor-pointer group hidden sm:block"
             >
               <GlassSurface
                 width={176}
@@ -456,13 +595,8 @@ export const Hero: React.FC<HeroProps> = ({ isMobile, onExploreClick }) => {
         </div>
       </div>
 
-      {/* Downward Scroll Arrow */}
-      <div className="flex justify-center pt-8 cursor-pointer" onClick={onExploreClick}>
-        <div ref={scrollIndicatorRef} className="flex flex-col items-center gap-1.5 opacity-60 hover:opacity-100 transition-opacity">
-          <div className="w-[1px] h-8 bg-slate-300" />
-          <ArrowDown className="w-3.5 h-3.5 text-slate-500" />
-        </div>
-      </div>
+
     </section>
+
   );
 };

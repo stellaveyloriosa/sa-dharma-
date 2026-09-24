@@ -343,11 +343,12 @@ h1, h2, h3, .font-serif, .playfair {
     0 1px 0 rgba(255, 255, 255, 0.92) inset;
 }
 
-.pub-status-Published { border-left: 3px solid #059669; }
-.pub-status-Under-Review { border-left: 3px solid #0891b2; }
-.pub-status-Preprint { border-left: 3px solid #d97706; }
-.pub-status-In-Preparation { border-left: 3px solid #9ca3af; }
-.pub-status-Accepted-Conf { border-left: 3px solid #7c3aed; }
+/* Status colors limited to badge pills only — no colored card rails */
+.pub-status-Published,
+.pub-status-Under-Review,
+.pub-status-Preprint,
+.pub-status-In-Preparation,
+.pub-status-Accepted-Conf { /* no border-left */ }
 
 .pub-badge {
   backdrop-filter: blur(8px);
@@ -406,3 +407,47 @@ h1, h2, h3, .font-serif, .playfair {
   border-radius: 9999px;
   padding: 0.2rem 0.6rem;
 }
+
+/* ═══════════════════════════════════════════════════════
+   MOBILE BOTTOM NAVIGATION DOCK
+   Hidden on desktop (≥ 700px), visible on mobile only
+═══════════════════════════════════════════════════════ */
+
+/* Default: always hidden */
+.mobile-bottom-nav-wrapper {
+  display: none !important;
+}
+
+/* Mobile only: show */
+@media (max-width: 700px) {
+  .mobile-bottom-nav-wrapper {
+    display: block !important;
+  }
+
+  /* Ensure active focus ring is visible */
+  .mobile-nav-item:focus-visible {
+    outline: 2px solid #6366f1;
+    outline-offset: 2px;
+  }
+
+  /* Reduce motion: disable transitions */
+  @media (prefers-reduced-motion: reduce) {
+    .mobile-nav-item,
+    .mobile-dock-shell {
+      transition: none !important;
+    }
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
+   MOBILE HERO — Fix badge text overflow
+═══════════════════════════════════════════════════════ */
+@media (max-width: 700px) {
+  /* Wrap the badge text so it never clips outside the pill */
+  .mobile-hero-badge span {
+    white-space: normal;
+    text-align: center;
+    line-height: 1.4;
+  }
+}
+

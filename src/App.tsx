@@ -7,6 +7,7 @@ import GlobalRippleEffect from './components/ui/GlobalRippleEffect';
 import SectionFadeIn from './components/ui/SectionFadeIn';
 import SectionSeparator from './components/ui/SectionSeparator';
 import { Navbar } from './components/layout/Navbar';
+import { MobileBottomNav } from './components/layout/MobileBottomNav';
 import { Footer } from './components/layout/Footer';
 import { Hero } from './components/sections/Hero';
 import { About } from './components/sections/About';
@@ -140,8 +141,11 @@ export default function App() {
       {/* Floating glass navbar */}
       <Navbar activeSection={activeSection} onNavigate={handleNavigate} />
 
+      {/* Mobile-only persistent bottom dock */}
+      <MobileBottomNav activeSection={activeSection} onNavigate={handleNavigate} />
+
       {/* Main Content Sections with Scroll-Triggered Fade-In-Up & Liquid-Glass Separators */}
-      <main className="relative z-10">
+      <main className="relative z-10 pb-[calc(92px+env(safe-area-inset-bottom))] lg:pb-0">
         <Hero isMobile={isMobile} onExploreClick={() => handleNavigate('research')} />
 
         <SectionSeparator />
@@ -186,3 +190,4 @@ export default function App() {
     </div>
   );
 }
+
