@@ -1,0 +1,472 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Sora', 'Plus Jakarta Sans', sans-serif;
+  --font-sans: 'Plus Jakarta Sans', 'Outfit', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+:root {
+  font-family: 'Plus Jakarta Sans', 'Outfit', sans-serif;
+  color-scheme: light;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: 'Sora', 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -0.025em;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', 'Outfit', sans-serif;
+}
+
+code, pre, .font-mono {
+  font-family: 'JetBrains Mono', monospace;
+  font-feature-settings: "tnum" 1;
+}
+
+/* Liquid Glass Surface Classes - Enhanced 3D Depth, Translucency & Specular Inset */
+.liquid-glass {
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.58) 100%);
+  backdrop-filter: blur(24px) saturate(140%);
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 20px 48px -12px rgba(99, 102, 241, 0.12), 0 6px 20px -3px rgba(15, 23, 42, 0.04), inset 0 1px 3px 0 rgba(255, 255, 255, 1), inset 0 -2px 8px 0 rgba(99, 102, 241, 0.08);
+}
+
+.liquid-glass-subtle {
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.46) 100%);
+  backdrop-filter: blur(16px) saturate(130%);
+  -webkit-backdrop-filter: blur(16px) saturate(130%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 10px 28px -5px rgba(99, 102, 241, 0.06), inset 0 1px 2px 0 rgba(255, 255, 255, 0.95), inset 0 -1px 5px 0 rgba(99, 102, 241, 0.05);
+}
+
+.liquid-glass-interactive {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.liquid-glass-interactive:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.72) 100%);
+  border-color: rgba(255, 255, 255, 1);
+  box-shadow: 0 24px 54px -10px rgba(99, 102, 241, 0.18), inset 0 1px 3px 0 rgba(255, 255, 255, 1), inset 0 -2px 10px 0 rgba(99, 102, 241, 0.1);
+  transform: translateY(-3px);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+}
+
+/* Frosted glass utilities & accents */
+.frosted-glass-card {
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  box-shadow: 0 12px 32px -6px rgba(99, 102, 241, 0.09), inset 0 1px 2px 0 rgba(255, 255, 255, 0.95);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Glassmorphic Design for Research, Publications & Projects Cards */
+.glassmorphic-card {
+  position: relative;
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.64);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 
+    0 16px 40px -10px rgba(31, 38, 135, 0.08),
+    0 2px 6px 0 rgba(15, 23, 42, 0.02),
+    inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 2px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glassmorphic-glow-card {
+  position: relative;
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.62);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border: 1.5px solid rgba(255, 255, 255, 0.82);
+  box-shadow: 
+    0 16px 38px -10px rgba(31, 38, 135, 0.07),
+    0 2px 6px 0 rgba(15, 23, 42, 0.02),
+    inset 0 1.5px 2.5px 0 rgba(255, 255, 255, 0.98),
+    inset 0 -1px 2px 0 rgba(255, 255, 255, 0.25);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glassmorphic-glow-card:hover {
+  background: rgba(255, 255, 255, 0.78);
+  border-color: rgba(129, 140, 248, 0.88);
+  box-shadow: 
+    0 0 28px -2px rgba(99, 102, 241, 0.35),
+    0 22px 48px -10px rgba(99, 102, 241, 0.18),
+    inset 0 0 14px 0 rgba(199, 210, 254, 0.25),
+    inset 0 1.5px 3px 0 rgba(255, 255, 255, 1);
+  transform: translateY(-4px);
+}
+
+/* Pristine Liquid Glass & Glass Frost Card with Edge Illumination */
+.edge-glow-card {
+  position: relative;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1.5px solid rgba(255, 255, 255, 0.92);
+  box-shadow: 
+    0 10px 28px -8px rgba(99, 102, 241, 0.07),
+    0 2px 6px 0 rgba(15, 23, 42, 0.02),
+    inset 0 1px 2.5px 0 rgba(255, 255, 255, 1),
+    inset 0 -1px 4px 0 rgba(99, 102, 241, 0.04);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.edge-glow-card:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(129, 140, 248, 0.88);
+  box-shadow: 
+    0 0 24px -2px rgba(99, 102, 241, 0.32),
+    0 20px 42px -10px rgba(99, 102, 241, 0.16),
+    inset 0 0 14px 0 rgba(199, 210, 254, 0.22),
+    inset 0 1px 3px 0 rgba(255, 255, 255, 1);
+  transform: translateY(-4px);
+}
+
+/* Clean Monolithic Liquid Glass Card (No Harsh Multi-Color Borders) */
+.glass-frost-card {
+  position: relative;
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.90) 0%, rgba(255, 255, 255, 0.70) 100%);
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 
+    0 20px 45px -12px rgba(99, 102, 241, 0.10),
+    0 4px 14px -2px rgba(15, 23, 42, 0.03),
+    inset 0 1.5px 3px 0 rgba(255, 255, 255, 1),
+    inset 0 -2px 6px 0 rgba(99, 102, 241, 0.05);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-frost-card:hover {
+  border-color: rgba(165, 180, 252, 0.95);
+  box-shadow: 
+    0 0 28px -3px rgba(99, 102, 241, 0.30),
+    0 24px 50px -12px rgba(99, 102, 241, 0.16),
+    inset 0 1.5px 3px 0 rgba(255, 255, 255, 1);
+}
+
+/* High-Class Icon Emblem */
+.luxury-icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(243, 244, 246, 0.9) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 
+    0 4px 14px -2px rgba(99, 102, 241, 0.12),
+    0 1px 3px 0 rgba(15, 23, 42, 0.05),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 1);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luxury-icon-badge:hover {
+  box-shadow: 
+    0 6px 20px -2px rgba(99, 102, 241, 0.22),
+    0 0 12px 1px rgba(99, 102, 241, 0.2),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 1);
+  transform: scale(1.08);
+}
+
+.frosted-glass-pill {
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06), inset 0 1px 1.5px 0 rgba(255, 255, 255, 1);
+}
+
+.gradient-text-purple-blue {
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #9333ea 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Organic fluid disturbance ripple waves across interactive cards */
+.frosted-glass-card,
+.frosted-glass-pill,
+button,
+.ripple-interactive {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-element-wave {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.1);
+  animation: element-ripple-burst 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.10) 0%, rgba(168, 85, 247, 0.04) 45%, transparent 70%);
+}
+
+@keyframes element-ripple-burst {
+  0% {
+    transform: translate(-50%, -50%) scale(0.1);
+    opacity: 0.35;
+  }
+  40% {
+    opacity: 0.22;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.5);
+    opacity: 0;
+  }
+}
+
+/* ====== NEW REDESIGN CLASSES ====== */
+
+/* --- GLOBAL SECTION BACKGROUNDS --- */
+.section-bg-radial {
+  background: radial-gradient(ellipse at 20% 50%, rgba(232,245,240,0.8) 0%, rgba(237,233,254,0.4) 60%, rgba(255,255,255,0) 100%), #f8f9fc;
+}
+
+/* --- CONSISTENT GLASS ELEVATION SYSTEM --- */
+.glass-level-1 {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.glass-level-2 {
+  background: rgba(255, 255, 255, 0.70);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.08);
+}
+
+.glass-level-3 {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.9) inset;
+}
+
+/* --- SKILLS PILLARS --- */
+.skill-card {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow:
+    0 8px 32px rgba(124, 58, 237, 0.06),
+    0 1px 0 rgba(255,255,255,0.9) inset;
+  border-radius: 24px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(124,58,237,0.10),
+              0 1px 0 rgba(255,255,255,0.9) inset;
+  border-color: rgba(167,139,250,0.5);
+}
+
+.skill-tag-pill {
+  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(200, 190, 255, 0.5);
+  box-shadow: 0 2px 8px rgba(124,58,237,0.05);
+  backdrop-filter: blur(8px);
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+}
+
+.skill-icon-container {
+  background: rgba(255,255,255,0.6);
+  border: 1px solid rgba(255,255,255,0.9);
+  box-shadow: 0 4px 16px rgba(124,58,237,0.12);
+  border-radius: 50%;
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-pillar-label {
+  background: rgba(237,233,254,0.6);
+  border: 1px solid rgba(167,139,250,0.3);
+  color: #7c3aed;
+  backdrop-filter: blur(8px);
+  border-radius: 9999px;
+}
+
+/* --- FEATURED PROJECTS --- */
+.project-card {
+  background: rgba(255,255,255,0.60);
+  backdrop-filter: blur(18px) saturate(150%);
+  border: 1px solid rgba(255,255,255,0.80);
+  box-shadow:
+    0 4px 24px rgba(0,0,0,0.05),
+    0 1px 0 rgba(255,255,255,0.95) inset;
+  border-radius: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(124,58,237,0.10),
+              0 1px 0 rgba(255,255,255,0.9) inset;
+}
+
+.project-category-badge {
+  background: rgba(237,233,254,0.55);
+  border: 1px solid rgba(167,139,250,0.35);
+  backdrop-filter: blur(10px);
+  color: #6d28d9;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  border-radius: 9999px;
+}
+
+.project-icon-circle {
+  background: rgba(255,255,255,0.65);
+  border: 1px solid rgba(255,255,255,0.9);
+  box-shadow: 0 4px 12px rgba(124,58,237,0.10);
+  backdrop-filter: blur(12px);
+  border-radius: 50%;
+}
+
+.btn-view-repo {
+  background: rgba(10,10,10,0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: white;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+.btn-view-repo:hover {
+  background: rgba(124,58,237,0.9);
+  border-color: rgba(167,139,250,0.3);
+}
+
+.filter-pill {
+  background: rgba(255,255,255,0.55);
+  border: 1px solid rgba(200,190,255,0.4);
+  color: #6d28d9;
+  backdrop-filter: blur(10px);
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+}
+.filter-pill.active {
+  background: rgba(124,58,237,0.88);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(167,139,250,0.4);
+  color: white;
+}
+
+/* --- PATENT SECTION --- */
+@keyframes border-shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes pulse-dot {
+  0% { box-shadow: 0 0 0 0 rgba(16,185,129,0.4); }
+  70% { box-shadow: 0 0 0 6px rgba(16,185,129,0); }
+  100% { box-shadow: 0 0 0 0 rgba(16,185,129,0); }
+}
+
+.patent-card {
+  background: linear-gradient(135deg, rgba(237,233,254,0.65) 0%, rgba(254,243,199,0.45) 100%);
+  backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid rgba(167,139,250,0.25);
+  border-radius: 24px;
+  position: relative;
+}
+.patent-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 24px;
+  padding: 1px;
+  background: linear-gradient(90deg, rgba(167,139,250,0.1), rgba(251,191,36,0.4), rgba(167,139,250,0.1));
+  background-size: 200% 200%;
+  animation: border-shimmer 3s ease infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 0 4px rgba(16,185,129,0.2);
+  animation: pulse-dot 2s infinite;
+}
+
+/* --- PUBLICATIONS --- */
+.publication-card {
+  background: rgba(255,255,255,0.58);
+  backdrop-filter: blur(16px) saturate(155%);
+  border: 1px solid rgba(255,255,255,0.78);
+  box-shadow:
+    0 4px 20px rgba(0,0,0,0.04),
+    0 1px 0 rgba(255,255,255,0.92) inset;
+  border-radius: 18px;
+  position: relative;
+  overflow: hidden;
+}
+
+.pub-status-Published { border-left: 3px solid #059669; }
+.pub-status-Under-Review { border-left: 3px solid #0891b2; }
+.pub-status-Preprint { border-left: 3px solid #d97706; }
+.pub-status-In-Preparation { border-left: 3px solid #9ca3af; }
+.pub-status-Accepted-Conf { border-left: 3px solid #7c3aed; }
+
+.pub-badge {
+  backdrop-filter: blur(8px);
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+}
+.pub-badge-Published { background: rgba(209,250,229,0.7); color: #065f46; border: 1px solid rgba(16,185,129,0.25); }
+.pub-badge-Under-Review { background: rgba(224,242,254,0.7); color: #075985; border: 1px solid rgba(14,165,233,0.25); }
+.pub-badge-Preprint { background: rgba(254,243,199,0.7); color: #92400e; border: 1px solid rgba(251,191,36,0.25); }
+.pub-badge-In-Preparation { background: rgba(243,244,246,0.7); color: #4b5563; border: 1px solid rgba(156,163,175,0.25); }
+.pub-badge-Accepted-Conf { background: rgba(237,233,254,0.7); color: #6d28d9; border: 1px solid rgba(167,139,250,0.25); }
+
+
+.btn-scholar {
+  background: rgba(255,255,255,0.65);
+  border: 1px solid rgba(200,190,255,0.45);
+  color: #7c3aed;
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+.btn-scholar:hover {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 3px rgba(124,58,237,0.08);
+}
+
+.peer-reviewed-label {
+  background: rgba(237,233,254,0.5);
+  border: 1px solid rgba(167,139,250,0.25);
+  color: #6d28d9;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  backdrop-filter: blur(6px);
+  border-radius: 9999px;
+  padding: 0.15rem 0.5rem;
+}

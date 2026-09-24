@@ -1,0 +1,408 @@
+@import "tailwindcss";
+@import "@fontsource/playfair-display/400.css";
+@import "@fontsource/playfair-display/400-italic.css";
+@import "@fontsource/playfair-display/700.css";
+@import "@fontsource/playfair-display/700-italic.css";
+@import "@fontsource/inter/300.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+
+:root {
+  --white:        #ffffff;
+  --bg-gradient:  linear-gradient(135deg, #f5f8ff 0%, #ffffff 50%, #f7f3ff 100%);
+  --text-primary: #0a0a0a;
+  --text-muted:   #64748b;
+  --accent-purple:#6366f1;
+  --accent-blue:  #3b82f6;
+
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--text-primary);
+  background-color: var(--white);
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fafcff;
+  color: var(--text-primary);
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .font-serif, .playfair {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-sans, .inter {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Glass Floating Navbar Style from Image */
+.frosted-glass-pill {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 16px 40px -10px rgba(99, 102, 241, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.frosted-glass-card {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 12px 32px -8px rgba(99, 102, 241, 0.08), 0 2px 6px rgba(0, 0, 0, 0.02);
+}
+
+/* Custom Gradient Text */
+.gradient-text-purple-blue {
+  background: linear-gradient(135deg, #4338ca 0%, #6366f1 45%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom Selection */
+::selection {
+  background-color: #c7d2fe;
+  color: #3730a3;
+}
+
+/* Clean Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #818cf8;
+}
+
+/* ====== Liquid Glass Surfaces ====== */
+.liquid-glass {
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.48) 100%);
+  backdrop-filter: blur(24px) saturate(140%);
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow:
+    0 20px 48px -12px rgba(99, 102, 241, 0.1),
+    0 6px 20px -3px rgba(15, 23, 42, 0.04),
+    inset 0 1px 3px 0 rgba(255, 255, 255, 1),
+    inset 0 -2px 8px 0 rgba(99, 102, 241, 0.06);
+}
+
+/* Glass elevation levels */
+.glass-level-1 {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+.glass-level-2 {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.08);
+}
+.glass-level-3 {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.9) inset;
+}
+
+/* Section radial depth (glass needs atmosphere behind it) */
+.section-bg-radial {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(232, 245, 240, 0.75) 0%, rgba(237, 233, 254, 0.35) 55%, transparent 100%),
+    radial-gradient(ellipse at 85% 20%, rgba(224, 242, 254, 0.45) 0%, transparent 50%),
+    rgba(248, 249, 252, 0.55);
+}
+.section-bg-radial-projects {
+  background:
+    radial-gradient(ellipse at 70% 40%, rgba(237, 233, 254, 0.7) 0%, rgba(224, 242, 254, 0.3) 55%, transparent 100%),
+    radial-gradient(ellipse at 10% 80%, rgba(252, 231, 243, 0.35) 0%, transparent 45%),
+    rgba(248, 249, 252, 0.55);
+}
+.section-bg-radial-pubs {
+  background:
+    radial-gradient(ellipse at 30% 30%, rgba(237, 233, 254, 0.65) 0%, rgba(209, 250, 229, 0.25) 50%, transparent 100%),
+    radial-gradient(ellipse at 90% 70%, rgba(254, 243, 199, 0.3) 0%, transparent 45%),
+    rgba(248, 249, 252, 0.55);
+}
+
+/* ====== Skills Pillars ====== */
+.skill-card {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow:
+    0 8px 32px rgba(124, 58, 237, 0.06),
+    0 1px 0 rgba(255, 255, 255, 0.9) inset;
+  border-radius: 24px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.skill-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 20px 48px rgba(124, 58, 237, 0.1),
+    0 1px 0 rgba(255, 255, 255, 0.9) inset;
+  border-color: rgba(167, 139, 250, 0.5);
+}
+
+.skill-tag-pill {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(200, 190, 255, 0.5);
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.skill-tag-pill:hover {
+  background: rgba(124, 58, 237, 0.9);
+  color: #fff;
+  border-color: rgba(167, 139, 250, 0.5);
+}
+
+.skill-icon-container {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 16px rgba(124, 58, 237, 0.12);
+  border-radius: 50%;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-pillar-label {
+  background: rgba(237, 233, 254, 0.6);
+  border: 1px solid rgba(167, 139, 250, 0.3);
+  color: #7c3aed;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 9999px;
+}
+
+/* ====== Featured Projects ====== */
+.project-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.05),
+    0 1px 0 rgba(255, 255, 255, 0.95) inset;
+  border-radius: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(167, 139, 250, 0.45);
+  box-shadow:
+    0 20px 48px rgba(124, 58, 237, 0.1),
+    0 1px 0 rgba(255, 255, 255, 0.9) inset;
+}
+
+.project-category-badge {
+  background: rgba(237, 233, 254, 0.55);
+  border: 1px solid rgba(167, 139, 250, 0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #6d28d9;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  border-radius: 9999px;
+}
+
+.project-icon-circle {
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-view-repo {
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: white;
+  border-radius: 10px;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+.btn-view-repo:hover {
+  background: rgba(124, 58, 237, 0.9);
+  border-color: rgba(167, 139, 250, 0.3);
+}
+
+.filter-pill {
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(200, 190, 255, 0.4);
+  color: #6d28d9;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+}
+.filter-pill:hover {
+  border-color: rgba(167, 139, 250, 0.55);
+  background: rgba(255, 255, 255, 0.72);
+}
+.filter-pill.active {
+  background: rgba(124, 58, 237, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(167, 139, 250, 0.4);
+  color: white;
+}
+
+/* ====== Patent (violet–gold hybrid) ====== */
+@keyframes border-shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes pulse-dot {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+  70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.patent-card {
+  background: linear-gradient(135deg, rgba(237, 233, 254, 0.65) 0%, rgba(254, 243, 199, 0.45) 100%);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid rgba(167, 139, 250, 0.25);
+  border-radius: 24px;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(124, 58, 237, 0.08);
+}
+.patent-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 24px;
+  padding: 1px;
+  background: linear-gradient(90deg, rgba(167, 139, 250, 0.15), rgba(251, 191, 36, 0.45), rgba(167, 139, 250, 0.15));
+  background-size: 200% 200%;
+  animation: border-shimmer 3s ease infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2);
+  animation: pulse-dot 2s infinite;
+  flex-shrink: 0;
+}
+
+/* ====== Publications ====== */
+.publication-card {
+  background: rgba(255, 255, 255, 0.58);
+  backdrop-filter: blur(16px) saturate(155%);
+  -webkit-backdrop-filter: blur(16px) saturate(155%);
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.04),
+    0 1px 0 rgba(255, 255, 255, 0.92) inset;
+  border-radius: 18px;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.publication-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(167, 139, 250, 0.4);
+  box-shadow:
+    0 16px 36px rgba(124, 58, 237, 0.08),
+    0 1px 0 rgba(255, 255, 255, 0.92) inset;
+}
+
+.pub-status-Published { border-left: 3px solid #059669; }
+.pub-status-Under-Review { border-left: 3px solid #0891b2; }
+.pub-status-Preprint { border-left: 3px solid #d97706; }
+.pub-status-In-Preparation { border-left: 3px solid #9ca3af; }
+.pub-status-Accepted-Conf { border-left: 3px solid #7c3aed; }
+
+.pub-badge {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+}
+.pub-badge-Published {
+  background: rgba(209, 250, 229, 0.7);
+  color: #065f46;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+.pub-badge-Under-Review {
+  background: rgba(224, 242, 254, 0.7);
+  color: #075985;
+  border: 1px solid rgba(14, 165, 233, 0.25);
+}
+.pub-badge-Preprint {
+  background: rgba(254, 243, 199, 0.7);
+  color: #92400e;
+  border: 1px solid rgba(251, 191, 36, 0.25);
+}
+.pub-badge-In-Preparation {
+  background: rgba(243, 244, 246, 0.7);
+  color: #4b5563;
+  border: 1px solid rgba(156, 163, 175, 0.25);
+}
+.pub-badge-Accepted-Conf {
+  background: rgba(237, 233, 254, 0.7);
+  color: #6d28d9;
+  border: 1px solid rgba(167, 139, 250, 0.25);
+}
+
+.btn-scholar {
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(200, 190, 255, 0.45);
+  color: #7c3aed;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+.btn-scholar:hover {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.08);
+}
+
+.peer-reviewed-label {
+  background: rgba(237, 233, 254, 0.5);
+  border: 1px solid rgba(167, 139, 250, 0.25);
+  color: #6d28d9;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 9999px;
+  padding: 0.2rem 0.6rem;
+}
