@@ -73,11 +73,20 @@ export default function App() {
   }, []);
 
   const handleNavigate = (sectionId: string) => {
-    const target = document.getElementById(sectionId);
+    const aliasMap: Record<string, string> = {
+      home: 'hero',
+      startup: 'skills',
+      experience: 'research',
+      leadership: 'about',
+      gallery: 'projects',
+    };
+    const targetId = aliasMap[sectionId.toLowerCase()] || sectionId;
+    const target = document.getElementById(targetId);
     if (target) {
       target.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
 
   return (
     <div className="relative min-h-screen bg-gradient-to-b from-[#f8faff] via-[#f4f2ff]/70 to-[#f0f4ff] text-slate-900 selection:bg-[#ddd6fe] selection:text-[#7c3aed] font-sans">
